@@ -9,7 +9,6 @@ import static controller.Gerenciador.obterAluno;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import model.entity.Aluno;
-import model.requerimento.Requerimento;
 
 /**
  *

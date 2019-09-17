@@ -20,20 +20,20 @@ public class Gerenciador {
     public static void main(String[] args) {
         /*
         Aluno aluno = new Aluno("18002210002", "12345678901", "123", "Ludwig Van Beethoven",
-                "16/12/1770", "Alemã", "ludwig.beethoven@uniriotec.br", "9", "Solteiro",
+                "16/12/1770", "AlemÃ£", "ludwig.beethoven@uniriotec.br", "9", "Solteiro",
                 "Masculino", "Maria", "Johann", "Surdo",
                 "Residencial", "Avenida", "AlgumNomeAlemao", "99", "PRU", "2112236666",
                 "NemUm", "Bonn", "21912345678", "66", "12345678", "Prussia");
         Aluno aluno2 = new Aluno("1585210001", "12345678903", "456", "Galileu Galilei",
                 "15/02/1564", "Italiana", "galileu.galilei@uniriotec.br", "3", "Solteiro",
-                "Masculino", "Giulia", "Vincenzo", "Não se aplica",
+                "Masculino", "Giulia", "Vincenzo", "NÃ£o se aplica",
                 "Residencial", "Avenida", "AlgumNomeItaliano", "44", "PIS", "2112236666",
-                "Algum", "Florença", "21912345678", "66", "12345678", "Itália");
-        Aluno aluno3 = new Aluno("18941210003", "12345678902", "789", "Oswaldo Gonçalves Cruz",
+                "Algum", "FlorenÃ§a", "21912345678", "66", "12345678", "ItÃ¡lia");
+        Aluno aluno3 = new Aluno("18941210003", "12345678902", "789", "Oswaldo GonÃ§alves Cruz",
                 "05/08/1872", "Brasileira", "osvaldo.cruz@uniriotec.br", "1", "Solteiro",
-                "Masculino", "Maria", "Jose", "Não se aplica",
-                "Residencial", "Avenida", "AlgumNomePortuguês", "44", "SP", "2112236666",
-                "São Luís", "São Paulo", "21912345678", "66", "12345678", "Brasil");
+                "Masculino", "Maria", "Jose", "NÃ£o se aplica",
+                "Residencial", "Avenida", "AlgumNomePortuguÃªs", "44", "SP", "2112236666",
+                "SÃ£o LuÃ­s", "SÃ£o Paulo", "21912345678", "66", "12345678", "Brasil");
 
         ManipuladorXML manipulador = new ManipuladorXML("Alunos.xml");
         ArrayList<Aluno> lista;
@@ -54,20 +54,20 @@ public class Gerenciador {
                 "99900011122", "123", "Ada Augusta King", "10/12/1815",
                 "Inglesa", "ada.lovelace@uniriotec.br",
                 "Casado", "Feminino", "Anne Isabella",
-                "Lord Byron", "Nenhuma", "Residencial", "Rua", "Matemática",
+                "Lord Byron", "Nenhuma", "Residencial", "Rua", "MatemÃ¡tica",
                 "42", "Byron", "08000099", "EnglishTea", "Londres", "5647483",
                 "42", "06987648", "Inglaterra");
         Professor prof2 = new Professor("789012", "Regime2", "Classe2", "Doutora", "Chefe de Departamento",
-                "55566677788", "789", "Marie Skłodowska Curie", "07/11/1867",
+                "55566677788", "789", "Marie SkÅ‚odowska Curie", "07/11/1867",
                 "Polonesa", "marie.curie@uniriotec.br",
-                "Casada", "Feminino", "Bronisława",
-                "Władysław", "Nenhuma", "Residencial", "Rua", "Química",
+                "Casada", "Feminino", "BronisÅ‚awa",
+                "WÅ‚adysÅ‚aw", "Nenhuma", "Residencial", "Rua", "QuÃ­mica",
                 "88", "Passy", "5556677", "Local", "Paris", "6655474",
-                "88", "64745678", "Polônia");
+                "88", "64745678", "PolÃ´nia");
 
         Professor prof3 = new Professor("345678", "Regime1", "Classe1", "Doutor", "Diretor",
                 "11122233344", "345", "Albert Einstein", "14/03/1879",
-                "Alemã", "albert.einstein@uniriotec.br",
+                "AlemÃ£", "albert.einstein@uniriotec.br",
                 "Casado", "Masculino", "Pauline",
                 "Hermann", "Nenhuma", "Residencial", "Rua", "Fisica",
                 "42", "Ulm", "08000099", "Princeton", "Princeton", "08001122",
@@ -75,18 +75,18 @@ public class Gerenciador {
         ManipuladorXML manipulador2 = new ManipuladorXML("Professors.xml");
         ArrayList<Professor> lista2;
 
-        prof.getGrade().add("Administração Financeira");
-        prof.getGrade().add("Estatística");
-        prof.getGrade().add("Gerência de Proj. de Informat.");
+        prof.getGrade().add("AdministraÃ§Ã£o Financeira");
+        prof.getGrade().add("EstatÃ­stica");
+        prof.getGrade().add("GerÃªncia de Proj. de Informat.");
         prof.getGrade().add("Probabilidade");
 
         prof2.getGrade().add("Processos de Software");
-        prof2.getGrade().add("Programação Modular");
+        prof2.getGrade().add("ProgramaÃ§Ã£o Modular");
         prof2.getGrade().add("Proj. Const. Sistemas-SGBD");
 
-        prof3.getGrade().add("Técnicas de Programação I");
-        prof3.getGrade().add("Teorias e Práticas Discursivas");
-        prof3.getGrade().add("Técnicas de Programação II");
+        prof3.getGrade().add("TÃ©cnicas de ProgramaÃ§Ã£o I");
+        prof3.getGrade().add("Teorias e PrÃ¡ticas Discursivas");
+        prof3.getGrade().add("TÃ©cnicas de ProgramaÃ§Ã£o II");
 
         manipulador2.adiciona(prof);
         manipulador2.adiciona(prof2);
@@ -99,17 +99,17 @@ public class Gerenciador {
             System.out.println(lista2.get(i2).getEmail());
 
         }
-        Tecnico tecnico = new Tecnico("Escola de Informática Aplicada", "CCET", "000111", "12376598707", "000", "Thomas Alva Edison",
+        Tecnico tecnico = new Tecnico("Escola de InformÃ¡tica Aplicada", "CCET", "000111", "12376598707", "000", "Thomas Alva Edison",
                 "11/02/1847", "Estadunidense", "thomas.edison@uniriotec.br",
                 "Solteiro", "Masculino", "Nancy", "Samuel", "Nenhuma", "Residencial", "Avenida",
                 "Das Luzes", "01", "Ohio", "25556769", "Milanhood", "Milan", "5553034", "10", "101607",
                 "Estados Unidos");
-        Tecnico tecnico2 = new Tecnico("Escola de Informática Aplicada", "CCET", "222333", "65748390012", "222", "Nikola Tesla",
-                "10/07/1856", "Sérvio", "nikola.tesla@uniriotec.br",
-                "Solteiro", "Masculino", "Đuka Mandici", "Milutin Tesla", "Nenhuma", "Residencial", "Avenida",
+        Tecnico tecnico2 = new Tecnico("Escola de InformÃ¡tica Aplicada", "CCET", "222333", "65748390012", "222", "Nikola Tesla",
+                "10/07/1856", "SÃ©rvio", "nikola.tesla@uniriotec.br",
+                "Solteiro", "Masculino", "Ä�uka Mandici", "Milutin Tesla", "Nenhuma", "Residencial", "Avenida",
                 "Chocante", "09", "Smiljan", "25556769", "Smiljanhood", "Aust", "5553034", "10", "101607",
-                "Império Austríaco");
-        Tecnico tecnico3 = new Tecnico("Escola de Informática Aplicada", "CCET", "444555", "19181716151", "444", "Neil deGrasse Tyson",
+                "ImpÃ©rio AustrÃ­aco");
+        Tecnico tecnico3 = new Tecnico("Escola de InformÃ¡tica Aplicada", "CCET", "444555", "19181716151", "444", "Neil deGrasse Tyson",
                 "05/10/1958", "Estadunidense", "neil.tyson@uniriotec.br",
                 "Casado", "Masculino", " Sunchita", "Cyril", "Nenhuma", "Residencial", "Avenida",
                 "Dos Planetas", "101", "Manhattan", "25556769", "Manhattanhood", "Nova York", "5553034", "010", "101607",
@@ -129,102 +129,39 @@ public class Gerenciador {
          */
 
     }
+    
+    public static void montaXML (Requerimento requerimento) {
+    	ManipuladorXML xml = new ManipuladorXML(REQUERIMENTO);
+        xml.leXML();
+        ArrayList<Requerimento> listaInicial = xml.getLista();
+        ArrayList<Requerimento> listaVazia = new ArrayList<>();
+
+        xml.setLista(listaVazia);
+        xml.escreveXML();
+
+        for (int i = 0; i < listaInicial.size(); i++) {
+            if (listaInicial.get(i).getNumeroProtocolo().equals(requerimento.getNumeroProtocolo())) {
+                listaInicial.remove(i);
+            }
+        }
+
+        xml.setLista(listaInicial);
+        xml.adiciona(requerimento);
+        xml.escreveXML();
+    }
 
     public static void analisaRequerimento(Requerimento requerimento) {
-        if (requerimento.getStatus().equals("TRIAGEM")) {
-            ManipuladorXML xml = new ManipuladorXML(REQUERIMENTO);
-            xml.leXML();
-            ArrayList<Requerimento> listaInicial = xml.getLista();
-            ArrayList<Requerimento> listaVazia = new ArrayList<>();
-
-            xml.setLista(listaVazia);
-            xml.escreveXML();
-
-            for (int i = 0; i < listaInicial.size(); i++) {
-                if (listaInicial.get(i).getNumeroProtocolo().equals(requerimento.getNumeroProtocolo())) {
-                    listaInicial.remove(i);
-                }
-            }
-
-            xml.setLista(listaInicial);
-            xml.adiciona(requerimento);
-            xml.escreveXML();
-
-        } else if (requerimento.getStatus().equals("DESIGNADO")) {
-            ManipuladorXML xml = new ManipuladorXML(REQUERIMENTO);
-            xml.leXML();
-            ArrayList<Requerimento> listaInicial = xml.getLista();
-            ArrayList<Requerimento> listaVazia = new ArrayList<>();
-
-            xml.setLista(listaVazia);
-            xml.escreveXML();
-
-            for (int i = 0; i < listaInicial.size(); i++) {
-                if (listaInicial.get(i).getNumeroProtocolo().equals(requerimento.getNumeroProtocolo())) {
-                    listaInicial.remove(i);
-                }
-            }
-
-            xml.setLista(listaInicial);
-            xml.adiciona(requerimento);
-            xml.escreveXML();
-
-        } else if (requerimento.getStatus().equals("CONCLUIDO")) {
-            ManipuladorXML xml = new ManipuladorXML(REQUERIMENTO);
-            xml.leXML();
-            ArrayList<Requerimento> listaInicial = xml.getLista();
-            ArrayList<Requerimento> listaVazia = new ArrayList<>();
-
-            xml.setLista(listaVazia);
-            xml.escreveXML();
-
-            for (int i = 0; i < listaInicial.size(); i++) {
-                if (listaInicial.get(i).getNumeroProtocolo().equals(requerimento.getNumeroProtocolo())) {
-                    listaInicial.remove(i);
-                }
-            }
-
-            xml.setLista(listaInicial);
-            xml.adiciona(requerimento);
-            xml.escreveXML();
-
-        } else if (requerimento.getStatus().equals("REJEITADO")) {
-            ManipuladorXML xml = new ManipuladorXML(REQUERIMENTO);
-            xml.leXML();
-            ArrayList<Requerimento> listaInicial = xml.getLista();
-            ArrayList<Requerimento> listaVazia = new ArrayList<>();
-
-            xml.setLista(listaVazia);
-            xml.escreveXML();
-
-            for (int i = 0; i < listaInicial.size(); i++) {
-                if (listaInicial.get(i).getNumeroProtocolo().equals(requerimento.getNumeroProtocolo())) {
-                    listaInicial.remove(i);
-                }
-            }
-
-            xml.setLista(listaInicial);
-            xml.adiciona(requerimento);
-            xml.escreveXML();
-        } else if (requerimento.getStatus().equals("PENDENTE")) {
-            ManipuladorXML xml = new ManipuladorXML(REQUERIMENTO);
-            xml.leXML();
-            ArrayList<Requerimento> listaInicial = xml.getLista();
-            ArrayList<Requerimento> listaVazia = new ArrayList<>();
-
-            xml.setLista(listaVazia);
-            xml.escreveXML();
-
-            for (int i = 0; i < listaInicial.size(); i++) {
-                if (listaInicial.get(i).getNumeroProtocolo().equals(requerimento.getNumeroProtocolo())) {
-                    listaInicial.remove(i);
-                }
-            }
-
-            xml.setLista(listaInicial);
-            xml.adiciona(requerimento);
-            xml.escreveXML();
-        }
+        if (requerimento.getStatus().equals("TRIAGEM")) 
+            montaXML(requerimento);
+         else if (requerimento.getStatus().equals("DESIGNADO")) 
+            montaXML(requerimento);
+         else if (requerimento.getStatus().equals("CONCLUIDO")) 
+           montaXML(requerimento);
+         else if (requerimento.getStatus().equals("REJEITADO")) 
+            montaXML(requerimento);
+        else if (requerimento.getStatus().equals("PENDENTE")) 
+            montaXML(requerimento);
+        
     }
 
     public static Aluno obterAluno(String cpf, String senha) {
@@ -440,11 +377,10 @@ public class Gerenciador {
         ArrayList<Requerimento> listaRetorno = new ArrayList<>();
         for (int i = 0; i < lista.size(); i++) {
 
-            if (lista.get(i).getStatus().equals("DESIGNADO")) {
+            if ((lista.get(i).getStatus().equals("DESIGNADO")) && lista.get(i).getAreaResponsavel().getCpf().equals(cpf)) {
                         
-                if (lista.get(i).getAreaResponsavel().getCpf().equals(cpf)) {
-                    listaRetorno.add(lista.get(i));
-                }
+                listaRetorno.add(lista.get(i));
+                
             }
         }
         return listaRetorno;
@@ -472,11 +408,10 @@ public static ArrayList<Requerimento> buscarRequerimentoAreaResponsavelProfessor
         ArrayList<Requerimento> listaRetorno = new ArrayList<>();
         for (int i = 0; i < lista.size(); i++) {
 
-            if ((lista.get(i).getStatus().equals("CONCLUIDO") )|| (lista.get(i).getStatus().equals("REJEITADO"))) {
+            if ((lista.get(i).getStatus().equals("CONCLUIDO") )|| (lista.get(i).getStatus().equals("REJEITADO")) && (lista.get(i).getAreaResponsavel().getCpf().equals(cpf))) {
                         
-                if (lista.get(i).getAreaResponsavel().getCpf().equals(cpf)) {
-                    listaRetorno.add(lista.get(i));
-                }
+            	listaRetorno.add(lista.get(i));
+                
             }
         }
         return listaRetorno;

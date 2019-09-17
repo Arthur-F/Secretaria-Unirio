@@ -5,7 +5,6 @@
  */
 package model.entity;
 
-import java.util.ArrayList;
 import lombok.Getter;
 import lombok.Setter;
 
