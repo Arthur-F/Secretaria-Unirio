@@ -13,7 +13,7 @@ public class Autenticacao {
 // método para reconhecimento do aluno e realizar a sua autenticação
 	public static boolean reconhecerAluno(String tipoUsuario, String cpfTela, String senhaTela) {
 
-		ArrayList<Aluno> lista = Gerenciador.acessarXML(tipoUsuario);
+		List<Aluno> lista = Gerenciador.acessarXML(tipoUsuario);
 		for (int i = 0; i < lista.size(); i++) {
 			// se a senha for correspondente ao cpf informado, validar 
 			if ((lista.get(i).getCpf().equals(cpfTela)) && lista.get(i).getSenha().equals(senhaTela)) {
@@ -27,7 +27,7 @@ public class Autenticacao {
 // método para reconhecimento do professor e realizar a sua autenticação
 	public static boolean reconhecerProfessor(String tipoUsuario, String cpfTela, String senhaTela) {
 
-		ArrayList<Professor> lista = Gerenciador.acessarXML(tipoUsuario);
+		List<Professor> lista = Gerenciador.acessarXML(tipoUsuario);
 		for (int i = 0; i < lista.size(); i++) {
 			// se a senha for correspondente ao cpf informado, validar
 			if ((lista.get(i).getCpf().equals(cpfTela)) && lista.get(i).getSenha().equals(senhaTela)) {
@@ -42,7 +42,7 @@ public class Autenticacao {
 // método para reconhecimento do professor e realizar a sua autenticação
 	public static boolean reconhecerTecnico(String tipoUsuario, String cpfTela, String senhaTela) {
 
-		ArrayList<Tecnico> lista = Gerenciador.acessarXML(tipoUsuario);
+		List<Tecnico> lista = Gerenciador.acessarXML(tipoUsuario);
 		for (int i = 0; i < lista.size(); i++) {
 			// se a senha for correspondente ao cpf informado, validar
 			if ((lista.get(i).getCpf().equals(cpfTela)) && lista.get(i).getSenha().equals(senhaTela)) {
