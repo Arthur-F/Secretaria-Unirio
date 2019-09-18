@@ -8,7 +8,9 @@ package view;
 import static controller.Gerenciador.buscarRequerimentoProtocolo;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.util.ArrayList;
+
+import java.util.List;
+
 import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -352,7 +354,7 @@ public class TelaAluno extends javax.swing.JFrame {
     private void popularRequerimentos() {
 
         DefaultTableModel model = (DefaultTableModel) tabelaRequerimentoAluno.getModel();
-        ArrayList<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoCPF(aluno.getCpf());
+        List<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoCPF(aluno.getCpf());
         Object rowData[] = new Object[3];
         for (int i = 0; i < requerimentos.size(); i++) {
             rowData[0] = requerimentos.get(i).getNumeroProtocolo();
@@ -406,7 +408,7 @@ public class TelaAluno extends javax.swing.JFrame {
             int numeroLinha = tabelaRequerimentoAluno.getSelectedRow();
             String numeroProtocolo = (String) tabelaRequerimentoAluno.getValueAt(numeroLinha,0);
             String tipoRequerimento =(String) tabelaRequerimentoAluno.getValueAt(numeroLinha,1);
-            ArrayList<Requerimento> requerimento = buscarRequerimentoProtocolo(numeroProtocolo);
+            List<Requerimento> requerimento = buscarRequerimentoProtocolo(numeroProtocolo);
             RequerimentoGeralAnexoAlunoLeitura requerimentoAlunoLeitura;
             requerimentoAlunoLeitura = new RequerimentoGeralAnexoAlunoLeitura(requerimento.get(0),tipoRequerimento);
             requerimentoAlunoLeitura.setVisible(true);
