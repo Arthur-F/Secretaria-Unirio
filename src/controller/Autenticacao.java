@@ -1,6 +1,7 @@
 package controller;
 
-import java.util.ArrayList;
+import java.util.List;
+
 import model.entity.Aluno;
 import model.entity.Professor;
 import model.entity.Tecnico;
