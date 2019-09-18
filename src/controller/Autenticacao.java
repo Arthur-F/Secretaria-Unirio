@@ -20,6 +20,7 @@ public class Autenticacao {
 				return true;
 			}
 		}
+		// se a senha NÃO for correspondente ao cpf informado, NÃO validar
 		return false;
 
 	}
@@ -33,6 +34,7 @@ public class Autenticacao {
 				return true;
 			}
 		}
+		// se a senha NÃO for correspondente ao cpf informado, NÃO validar
 		return false;
 
 	}
@@ -47,6 +49,7 @@ public class Autenticacao {
 				return true;
 			}
 		}
+		// se a senha NÃO for correspondente ao cpf informado, NÃO validar
 		return false;
 
 	}
