@@ -46,13 +46,21 @@ public class Gerenciador {
         xml.escreveXML();
     }
 
+    public static boolean checaRequerimento(Requerimento requerimento) {
+    	if (requerimento.getStatus().equals("TRIAGEM") ||
+    			requerimento.getStatus().equals(DESIGNADO) ||
+    			requerimento.getStatus().equals(CONCLUIDO) ||
+    			requerimento.getStatus().equals(REJEITADO) ||
+    			requerimento.getStatus().equals("PENDENTE"))
+    		return true;
+    	else
+    		return false;
+    	
+    }
     public static void analisaRequerimento(Requerimento requerimento) {
-        if (requerimento.getStatus().equals("TRIAGEM") ||
-        		requerimento.getStatus().equals(DESIGNADO) ||
-        		requerimento.getStatus().equals(CONCLUIDO) ||
-        		requerimento.getStatus().equals(REJEITADO) ||
-        		requerimento.getStatus().equals("PENDENTE"))
-            montaXML(requerimento);       
+    	if(checaRequerimento(requerimento)) {
+    		montaXML(requerimento);
+    	}
     }
 
     public static Aluno obterAluno(String cpf, String senha) {
