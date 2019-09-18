@@ -25,64 +25,64 @@ public class Usuario {
     private String nome; // nome do usuário
     @Getter
     @Setter
-    private String dataNascimeto;
+    private String dataNascimeto; // data de nascimento do usuário
     @Getter
     @Setter
-    private String nacionalidade;
+    private String nacionalidade; // nacionalidade do usuário
     @Getter
     @Setter
-    private String email;
+    private String email; // e-mail do usuário
     @Getter
     @Setter
-    private String estadoCivil;
+    private String estadoCivil; // estado civil do usuário
     @Getter
     @Setter
-    private String sexo;
+    private String sexo; // sexo do usuário (feminino ou masculino)
     @Getter
     @Setter
-    private String nomeDaMae;
+    private String nomeDaMae; // nome da mãe do usuário
     @Getter
     @Setter
-    private String nomeDoPai;
+    private String nomeDoPai; // nome do pai do usuário
     @Getter
     @Setter
-    private String deficiencia;
+    private String deficiencia; 
     @Getter
     @Setter
-    private String tipoDeEndereco;
+    private String tipoDeEndereco; // tipod e endereço do usuário
     @Getter
     @Setter
-    private String tipoLogradouro;
+    private String tipoLogradouro; // tipo de logradouro do usuário
     @Getter
     @Setter
-    private String logradouro;
+    private String logradouro; // logradouro do usuário
     @Getter
     @Setter
-    private String complemento;
+    private String complemento; // complemento do logradouro do usuário
     @Getter
     @Setter
-    private String estado;
+    private String estado; // estado onde o usuário reside
     @Getter
     @Setter
-    private String telefoneResidencial;
+    private String telefoneResidencial; // telefone residencial do usuário
     @Getter
     @Setter
-    private String bairro;
+    private String bairro; // bairro onde o usuário reside
     @Getter
     @Setter
-    private String cidade;
+    private String cidade; // cidade onde o usuário reside
     @Getter
     @Setter
-    private String telefoneCelular;
+    private String telefoneCelular; // telefone celular do usuário
     @Getter
     @Setter
     private String numero;
     @Getter
     @Setter
-    private String cep;
+    private String cep; // cep do endereço do usuário
     @Getter
     @Setter
-    private String pais;
+    private String pais; // país onde o usuário reside
 
     public Usuario() {
     }
