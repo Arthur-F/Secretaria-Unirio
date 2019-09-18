@@ -9,6 +9,8 @@ import static controller.Gerenciador.buscarRequerimentoProtocolo;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -555,7 +557,7 @@ public class TelaProfessor extends javax.swing.JFrame {
     }
     private void popularRequerimentosAlunos(){
      DefaultTableModel model = (DefaultTableModel) tabelaRequerimentoAlunos.getModel();
-        ArrayList<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoAreaResponsavelProfessorDesignado(professor.getCpf());
+     List<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoAreaResponsavelProfessorDesignado(professor.getCpf());
         Object rowData[] = new Object[4];
         for (int i = 0; i < requerimentos.size(); i++) {
             rowData[0] = requerimentos.get(i).getNumeroProtocolo();
@@ -568,7 +570,7 @@ public class TelaProfessor extends javax.swing.JFrame {
     
     private void popularRequerimentosAlunosFinalizado(){
         DefaultTableModel model = (DefaultTableModel) tabelaRequerimentoAlunosFinalizados.getModel();
-        ArrayList<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoAreaResponsavelProfessorFinalizado(professor.getCpf());
+        List<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoAreaResponsavelProfessorFinalizado(professor.getCpf());
         Object rowData[] = new Object[4];
         for (int i = 0; i < requerimentos.size(); i++) {
             rowData[0] = requerimentos.get(i).getNumeroProtocolo();
@@ -581,7 +583,7 @@ public class TelaProfessor extends javax.swing.JFrame {
     
     private void popularRequerimentosAlunosPendentes(){
      DefaultTableModel model = (DefaultTableModel) tabelaRequerimentoAlunosPendentes.getModel();
-        ArrayList<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoAreaResponsavelProfessorDesignadoPendente(professor.getCpf());
+     List<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoAreaResponsavelProfessorDesignadoPendente(professor.getCpf());
         Object rowData[] = new Object[4];
         for (int i = 0; i < requerimentos.size(); i++) {
             rowData[0] = requerimentos.get(i).getNumeroProtocolo();
@@ -652,7 +654,7 @@ public class TelaProfessor extends javax.swing.JFrame {
             int numeroLinha = tabelaRequerimentoAlunos.getSelectedRow();
             String numeroProtocolo = (String) tabelaRequerimentoAlunos.getValueAt(numeroLinha,0);
             String tipoRequerimento =(String) tabelaRequerimentoAlunos.getValueAt(numeroLinha,1);
-            ArrayList<Requerimento> requerimento = buscarRequerimentoProtocolo(numeroProtocolo);
+            List<Requerimento> requerimento = buscarRequerimentoProtocolo(numeroProtocolo);
             RequerimentoGeralAnexoProfessorLeitura requerimentoAlunoLeitura;
             requerimentoAlunoLeitura = new RequerimentoGeralAnexoProfessorLeitura(requerimento.get(0),tipoRequerimento, professor);
             requerimentoAlunoLeitura.setVisible(true);
@@ -667,7 +669,7 @@ public class TelaProfessor extends javax.swing.JFrame {
             int numeroLinha = tabelaRequerimentoAlunosPendentes.getSelectedRow();
             String numeroProtocolo = (String) tabelaRequerimentoAlunosPendentes.getValueAt(numeroLinha,0);
             String tipoRequerimento =(String) tabelaRequerimentoAlunosPendentes.getValueAt(numeroLinha,1);
-            ArrayList<Requerimento> requerimento = buscarRequerimentoProtocolo(numeroProtocolo);
+            List<Requerimento> requerimento = buscarRequerimentoProtocolo(numeroProtocolo);
             RequerimentoGeralAnexoProfessorLeitura requerimentoAlunoLeitura;
             requerimentoAlunoLeitura = new RequerimentoGeralAnexoProfessorLeitura(requerimento.get(0),tipoRequerimento, professor);
             requerimentoAlunoLeitura.setVisible(true);
@@ -681,7 +683,7 @@ public class TelaProfessor extends javax.swing.JFrame {
             int numeroLinha = tabelaRequerimentoAlunosFinalizados.getSelectedRow();
             String numeroProtocolo = (String) tabelaRequerimentoAlunosFinalizados.getValueAt(numeroLinha,0);
             String tipoRequerimento =(String) tabelaRequerimentoAlunosFinalizados.getValueAt(numeroLinha,1);
-            ArrayList<Requerimento> requerimento = buscarRequerimentoProtocolo(numeroProtocolo);
+            List<Requerimento> requerimento = buscarRequerimentoProtocolo(numeroProtocolo);
             RequerimentoGeralAnexoProfessorLeitura requerimentoAlunoLeitura;
             requerimentoAlunoLeitura = new RequerimentoGeralAnexoProfessorLeitura(requerimento.get(0),tipoRequerimento, professor);
             requerimentoAlunoLeitura.setVisible(true);

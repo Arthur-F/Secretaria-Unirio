@@ -9,6 +9,8 @@ import static controller.Gerenciador.buscarRequerimentoProtocolo;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -464,7 +466,7 @@ public class TelaSecretaria extends javax.swing.JFrame {
             int numeroLinha = tabelaTriagem.getSelectedRow();
             String numeroProtocolo = (String) tabelaTriagem.getValueAt(numeroLinha,0);
             String tipoRequerimento =(String) tabelaTriagem.getValueAt(numeroLinha,1);
-            ArrayList<Requerimento> requerimento = buscarRequerimentoProtocolo(numeroProtocolo);
+            List<Requerimento> requerimento = buscarRequerimentoProtocolo(numeroProtocolo);
             RequerimentoGeralAnexoSecretaria requerimentoAlunoLeitura;
             requerimentoAlunoLeitura = new RequerimentoGeralAnexoSecretaria(requerimento.get(0),tipoRequerimento);
             requerimentoAlunoLeitura.setVisible(true);
@@ -477,7 +479,7 @@ public class TelaSecretaria extends javax.swing.JFrame {
             int numeroLinha = tabelaRequerimentoSecretaria.getSelectedRow();
             String numeroProtocolo = (String) tabelaRequerimentoSecretaria.getValueAt(numeroLinha,0);
             String tipoRequerimento =(String) tabelaRequerimentoSecretaria.getValueAt(numeroLinha,1);
-            ArrayList<Requerimento> requerimento = buscarRequerimentoProtocolo(numeroProtocolo);
+            List<Requerimento> requerimento = buscarRequerimentoProtocolo(numeroProtocolo);
             RequerimentoGeralAnexoSecretariaLeitura requerimentoAlunoLeitura;
             requerimentoAlunoLeitura = new RequerimentoGeralAnexoSecretariaLeitura(requerimento.get(0),tipoRequerimento);
             requerimentoAlunoLeitura.setVisible(true);
@@ -491,7 +493,7 @@ public class TelaSecretaria extends javax.swing.JFrame {
             int numeroLinha = tabelaTodosRequerimentos.getSelectedRow();
             String numeroProtocolo = (String) tabelaTodosRequerimentos.getValueAt(numeroLinha,0);
             String tipoRequerimento =(String) tabelaTodosRequerimentos.getValueAt(numeroLinha,1);
-            ArrayList<Requerimento> requerimento = buscarRequerimentoProtocolo(numeroProtocolo);
+            List<Requerimento> requerimento = buscarRequerimentoProtocolo(numeroProtocolo);
             RequerimentoGeralAnexoSecretaria requerimentoAlunoLeitura;
             requerimentoAlunoLeitura = new RequerimentoGeralAnexoSecretaria(requerimento.get(0),tipoRequerimento);
             requerimentoAlunoLeitura.setVisible(true);
@@ -512,7 +514,7 @@ public class TelaSecretaria extends javax.swing.JFrame {
             int numeroLinha = tabelaRequerimentosFinalizados.getSelectedRow();
             String numeroProtocolo = (String) tabelaRequerimentosFinalizados.getValueAt(numeroLinha,0);
             String tipoRequerimento =(String) tabelaRequerimentosFinalizados.getValueAt(numeroLinha,1);
-            ArrayList<Requerimento> requerimento = buscarRequerimentoProtocolo(numeroProtocolo);
+            List<Requerimento> requerimento = buscarRequerimentoProtocolo(numeroProtocolo);
             RequerimentoGeralAnexoSecretariaLeituraFinalizados requerimentoAlunoLeitura;
             requerimentoAlunoLeitura = new RequerimentoGeralAnexoSecretariaLeituraFinalizados(requerimento.get(0),tipoRequerimento);         
             requerimentoAlunoLeitura.setVisible(true);
@@ -522,7 +524,7 @@ public class TelaSecretaria extends javax.swing.JFrame {
 
      private void popularRequerimentosFinalizados(){
         DefaultTableModel model = (DefaultTableModel) tabelaRequerimentosFinalizados.getModel();
-        ArrayList<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoFinalizado();
+        List<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoFinalizado();
         Object rowData[] = new Object[4];
         for (int i = 0; i < requerimentos.size(); i++) {
             rowData[0] = requerimentos.get(i).getNumeroProtocolo();
@@ -535,7 +537,7 @@ public class TelaSecretaria extends javax.swing.JFrame {
     private void popularRequerimentosTriagem() {
 
         DefaultTableModel model = (DefaultTableModel) tabelaTriagem.getModel();
-        ArrayList<Requerimento> requerimentos = controller.Gerenciador.buscarTriagem();
+        List<Requerimento> requerimentos = controller.Gerenciador.buscarTriagem();
         Object rowData[] = new Object[4];
         for (int i = 0; i < requerimentos.size(); i++) {
             rowData[0] = requerimentos.get(i).getNumeroProtocolo();
@@ -549,7 +551,7 @@ public class TelaSecretaria extends javax.swing.JFrame {
     private void popularRequerimentos() {
 
         DefaultTableModel model = (DefaultTableModel) tabelaTodosRequerimentos.getModel();
-        ArrayList<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoRequerenteAluno();
+        List<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoRequerenteAluno();
         Object rowData[] = new Object[4];
         for (int i = 0; i < requerimentos.size(); i++) {
             rowData[0] = requerimentos.get(i).getNumeroProtocolo();
@@ -563,7 +565,7 @@ public class TelaSecretaria extends javax.swing.JFrame {
       private void popularRequerimentosSecretaria() {
 
         DefaultTableModel model = (DefaultTableModel) tabelaRequerimentoSecretaria.getModel();
-        ArrayList<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoAreaResponsavelTecnico();
+        List<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoAreaResponsavelTecnico();
         Object rowData[] = new Object[4];
         for (int i = 0; i < requerimentos.size(); i++) {
             rowData[0] = requerimentos.get(i).getNumeroProtocolo();

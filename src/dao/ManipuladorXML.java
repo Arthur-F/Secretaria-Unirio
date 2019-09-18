@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Classe genérica para ser utilizada na realização da persistência do projeto.
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  */
 public class ManipuladorXML<Tipo> {
 
-    private ArrayList<Tipo> lista = new ArrayList<>();
+    private List<Tipo> lista = new ArrayList<>();
 
     private String nomeArquivo;
 
@@ -22,11 +23,11 @@ public class ManipuladorXML<Tipo> {
         this.nomeArquivo = nomeArquivo;
     }
 
-    public ArrayList<Tipo> getLista() {
+    public List<Tipo> getLista() {
         return lista;
     }
 
-    public void setLista(ArrayList<Tipo> lista) {
+    public void setLista(List<Tipo> lista) {
         this.lista = lista;
     }
 
