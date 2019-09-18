@@ -47,10 +47,25 @@ public class Gerenciador {
     }
 
     public static boolean checaRequerimento(Requerimento requerimento) {
+    	/*Triagem é o primeiro estado do requerimento. 
+    	 * Assim que o ticket é aberto ele aparece para a secretaria como triagem */
     	if (requerimento.getStatus().equals("TRIAGEM") ||
+    			/*Assim que a secretaria identifica para quem o requerimento deve 
+    			 * ser DESIGNADO e valida que todas as informações necessárias estão 
+    			 * preenchidas, ela envia o requerimento para o responsável e o 
+    			 * requerimento ganha o estado DESIGNADO*/
     			requerimento.getStatus().equals(DESIGNADO) ||
+    			/*Quando o requerimento termina de ser processado pelo responsável
+    			 * ele solicita o encerramento do requerimento, alterando o seu status para 
+    			 * CONCLUIDO*/
     			requerimento.getStatus().equals(CONCLUIDO) ||
+    			/*Caso a recretaria identifique que o requerimento aberto pelo requerente 
+    			 * é improcedente por algum motivo, ele pode rejeitar o requerimento, 
+    			 * alterando seu status para REJEITADO*/
     			requerimento.getStatus().equals(REJEITADO) ||
+    			/*Caso a secretaria identique que falta alguma informação para o 
+    			 * encaminhar o requerimento para o responsável, ela pode solicitar 
+    			 * do requerente mais informações através do estado PENDENTE*/
     			requerimento.getStatus().equals("PENDENTE"))
     		return true;
     	else
@@ -152,162 +167,206 @@ public class Gerenciador {
         return professorObtido;
     }
 
+    /*Método para buscar os requerimentos que estão no estado de TRIAGEM*/
     public static List<Requerimento> buscarTriagem() {
         ManipuladorXML xml = new ManipuladorXML(REQUERIMENTO);
         xml.leXML();
         List<Requerimento> lista = xml.getLista();
         List<Requerimento> listaRetorno = new ArrayList<>();
-
+        // para cada requerimento da lista de requerimentos fazer:
         for (int i = 0; i < lista.size(); i++) {
+        	//se o estado do requerimento for triagem
             if (lista.get(i).getStatus().equals("TRIAGEM")) {
+            	//adiciona esse requerimento com estado de TRIAGEM à lista de retorno 
                 listaRetorno.add(lista.get(i));
             }
         }
+        //trazer a lista de retorno contendo os requerimentos que estão no estado TRIAGEM
         return listaRetorno;
     }
-
+// método usado para procurar um requerimento a partir do seu número de protocolo
     public static List<Requerimento> buscarRequerimentoProtocolo(String numeroProtocolo) {
         ManipuladorXML xml = new ManipuladorXML(REQUERIMENTO);
         xml.leXML();
         List<Requerimento> lista = xml.getLista();
         List<Requerimento> listaRetorno = new ArrayList<>();
-
+        //para cada item da lista de requerimento
         for (int i = 0; i < lista.size(); i++) {
+        	//se o número do protocolo inserido foi igual ao número de protocolo de um item da lista
             if (lista.get(i).getNumeroProtocolo().equals(numeroProtocolo)) {
+            	//adicionar à lista de retorno o requerimento que foi buscado
                 listaRetorno.add(lista.get(i));
             }
         }
+      /*trazer a lista de retorno contendo os requerimentos que possuem o mesmo número 
+       * de protocolo inserido na busca*/
         return listaRetorno;
     }
-
+//método para buscar requerimentos associados ao cpf de um usuário requerente
     public static List<Requerimento> buscarRequerimentoCPF(String cpf) {
         ManipuladorXML xml = new ManipuladorXML(REQUERIMENTO);
         xml.leXML();
         List<Requerimento> lista = xml.getLista();
         List<Requerimento> listaRetorno = new ArrayList<>();
-
+        //para cada item da lista de requerimento
         for (int i = 0; i < lista.size(); i++) {
+        	//se o número do cpf inserido for igual ao número de cpf de um requerente
             if (lista.get(i).getRequerente().getCpf().equals(cpf)) {
+            	//adicionar à lista de retorno o requerimento que foi encontrado
                 listaRetorno.add(lista.get(i));
             }
         }
+        /*trazer a lista de retorno contendo os requerimentos que possuem o mesmo número 
+         * de cpf do requerente inserido na busca*/
         return listaRetorno;
     }
-
+  //método para buscar requerimentos associados à entidade de um usuário requerente
     public static List<Requerimento> buscarRequerimentoRequerenteAluno() {
         ManipuladorXML xml = new ManipuladorXML(REQUERIMENTO);
         xml.leXML();
         List<Requerimento> lista = xml.getLista();
         List<Requerimento> listaRetorno = new ArrayList<>();
-
+        //para cada item da lista de requerimento
         for (int i = 0; i < lista.size(); i++) {
+        	//se o requerente pesquisado for igual ao requerente de um requerimento
             if (lista.get(i).getRequerente() instanceof model.entity.Aluno) {
+            	//adicionar à lista de retorno o requerimento que foi encontrado
                 listaRetorno.add(lista.get(i));
             }
         }
+        /*trazer a lista de retorno contendo os requerimentos que possuem o mesmo requerente 
+         * inserido na busca*/
         return listaRetorno;
     }
-
+  //método para buscar requerimentos associados à entidade de um usuário requerente
     public static List<Requerimento> buscarRequerimentoRequerenteProfessor() {
         ManipuladorXML xml = new ManipuladorXML(REQUERIMENTO);
         xml.leXML();
         List<Requerimento> lista = xml.getLista();
         List<Requerimento> listaRetorno = new ArrayList<>();
-
+        //para cada item da lista de requerimento
         for (int i = 0; i < lista.size(); i++) {
+        	//se o requerente pesquisado for igual ao requerente de um requerimento
             if (lista.get(i).getRequerente() instanceof model.entity.Professor) {
+            	//adicionar à lista de retorno o requerimento que foi encontrado
                 listaRetorno.add(lista.get(i));
             }
         }
+        /*trazer a lista de retorno contendo os requerimentos que possuem o mesmo requerente 
+         * inserido na busca*/
         return listaRetorno;
     }
-
+  //método para buscar requerimentos associados à entidade de uma área responsável
     public static List<Requerimento> buscarRequerimentoAreaResponsavelProfessor() {
         ManipuladorXML xml = new ManipuladorXML(REQUERIMENTO);
         xml.leXML();
         List<Requerimento> lista = xml.getLista();
         List<Requerimento> listaRetorno = new ArrayList<>();
-
+        //para cada item da lista de requerimento
         for (int i = 0; i < lista.size(); i++) {
+        	//se á área responsável pesquisada for igual à área responsável de um requerimento
             if (lista.get(i).getAreaResponsavel() instanceof model.entity.Professor) {
-                listaRetorno.add(lista.get(i));
+            	//adicionar à lista de retorno o requerimento que foi encontrado
+            	listaRetorno.add(lista.get(i));
             }
         }
+        /*trazer a lista de retorno contendo os requerimentos que possuem a mesma área 
+         * responsável inserido na busca*/
         return listaRetorno;
     }
-
+  //método para buscar requerimentos associados à entidade de uma área responsável
     public static List<Requerimento> buscarRequerimentoAreaResponsavelTecnico() {
         ManipuladorXML xml = new ManipuladorXML(REQUERIMENTO);
         xml.leXML();
         List<Requerimento> lista = xml.getLista();
         List<Requerimento> listaRetorno = new ArrayList<>();
-
+        //para cada item da lista de requerimento
         for (int i = 0; i < lista.size(); i++) {
+        	//se á área responsável pesquisada for igual à área responsável de um requerimento
             if (lista.get(i).getAreaResponsavel() instanceof model.entity.Tecnico && lista.get(i).getStatus().equals(DESIGNADO)) {
+            	//adicionar à lista de retorno o requerimento que foi encontrado
                 listaRetorno.add(lista.get(i));
             }
         }
+        /*trazer a lista de retorno contendo os requerimentos que possuem a mesma área 
+         * responsável inserido na busca*/
         return listaRetorno;
     }
-
+/*busca requerimentos que estão finalizados. Requerimentos finalizados são os que possuem 
+ * os estados CONLUIDO ou REJEITADO */
     public static List<Requerimento> buscarRequerimentoFinalizado() {
         ManipuladorXML xml = new ManipuladorXML(REQUERIMENTO);
         xml.leXML();
         List<Requerimento> lista = xml.getLista();
         List<Requerimento> listaRetorno = new ArrayList<>();
+        //para cada item da lista de requerimento
         for (int i = 0; i < lista.size(); i++) {
-
+        	// se o requerimento possui os estados REJEITADO ou CONCLUIDO
             if (lista.get(i).getStatus().equals(REJEITADO) ||  lista.get(i).getStatus().equals(CONCLUIDO) ) {
-                
+            		//trazer esse requerimento na lista de retorno de requerimentos
                     listaRetorno.add(lista.get(i));
                 
             }
         }
+        /*trazer a lista de retorno contendo os requerimentos que possuem os mesmos estados
+         * inseridos na busca*/
         return listaRetorno;
     }
     
-    
+// métodos para buscar requerimentos que já estejam designados para algum professor    
     public static List<Requerimento> buscarRequerimentoAreaResponsavelProfessorDesignado(String cpf) {
         ManipuladorXML xml = new ManipuladorXML(REQUERIMENTO);
         xml.leXML();
         List<Requerimento> lista = xml.getLista();
         List<Requerimento> listaRetorno = new ArrayList<>();
+        //para toda a lsita de requerimentos
         for (int i = 0; i < lista.size(); i++) {
-
+        	// se existir um requerimento com o estado DESIGNADO e com a área responsável sendo um professor
             if ((lista.get(i).getStatus().equals(DESIGNADO)) && lista.get(i).getAreaResponsavel().getCpf().equals(cpf)) {
-                        
+                //adicionar esse requerimento à lista de retorno        
                 listaRetorno.add(lista.get(i));
                 
             }
         }
+        //exibir a lista de retorno gerada
         return listaRetorno;
     }
+    
+// métodos para buscar requerimentos que já estejam pendentes para algum professor    
 public static List<Requerimento> buscarRequerimentoAreaResponsavelProfessorDesignadoPendente(String cpf) {
         ManipuladorXML xml = new ManipuladorXML(REQUERIMENTO);
         xml.leXML();
         List<Requerimento> lista = xml.getLista();
         List<Requerimento> listaRetorno = new ArrayList<>();
+        //para toda a lsita de requerimentos
         for (int i = 0; i < lista.size(); i++) {
-
+        	// se existir um requerimento com o estado PENDENTE e com a área responsável sendo um professor
             if (lista.get(i).getStatus().equals("PENDENTE") && (lista.get(i).getAreaResponsavel().getCpf().equals(cpf))) {       
-                    listaRetorno.add(lista.get(i));
+            	//adicionar esse requerimento à lista de retorno    
+            	listaRetorno.add(lista.get(i));
             }  
         }
+        //exibir a lista de retorno gerada
         return listaRetorno;
     }
+
+/*métodos para buscar requerimentos que já estejam finalizados para algum professor. 
+ * Finalizado são os estados CONCLUÍDO ou REJEITADO. */
     public static List<Requerimento> buscarRequerimentoAreaResponsavelProfessorFinalizado(String cpf) {
         ManipuladorXML xml = new ManipuladorXML(REQUERIMENTO);
         xml.leXML();
         List<Requerimento> lista = xml.getLista();
         List<Requerimento> listaRetorno = new ArrayList<>();
+        //para toda a lsita de requerimentos
         for (int i = 0; i < lista.size(); i++) {
-
+        	// se existir um requerimento com o estado CONCLUIDO ou REJEITADO e com a área responsável sendo um professor
             if ((lista.get(i).getStatus().equals(CONCLUIDO) )|| (lista.get(i).getStatus().equals(REJEITADO)) && (lista.get(i).getAreaResponsavel().getCpf().equals(cpf))) {
-                        
+            	//adicionar esse requerimento à lista de retorno 
             	listaRetorno.add(lista.get(i));
                 
             }
         }
+        //exibir a lista de retorno gerada
         return listaRetorno;
     }
     public static List acessarXML(String tipoUsuario) {
