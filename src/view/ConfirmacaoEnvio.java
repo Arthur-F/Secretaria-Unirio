@@ -114,12 +114,20 @@ public class ConfirmacaoEnvio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Centraliza a tela independentemente do tamanho
+     */
+    
     private void centralizarTela() {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
     }
 
-
+    
+    /**
+     * Confirma o envio apos o clique
+     * @param evt evento do clique do mouse
+     */
     private void simBotaoConfirmacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simBotaoConfirmacaoActionPerformed
         Gerenciador.analisaRequerimento(requerimento);
         EnviadoComSucesso janelaSucesso = new EnviadoComSucesso(aluno);
@@ -128,6 +136,10 @@ public class ConfirmacaoEnvio extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_simBotaoConfirmacaoActionPerformed
 
+    /**
+     * nega o envio apos o clique
+     * @param evt evento do clique do mouse
+     */
     private void naoBotaoConfirmacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naoBotaoConfirmacaoActionPerformed
         this.setVisible(false);
 
