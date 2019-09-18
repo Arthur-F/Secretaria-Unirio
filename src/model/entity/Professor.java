@@ -20,22 +20,22 @@ public class Professor extends Usuario {
     ArrayList<String> grade = new ArrayList<>();
     @Getter
     @Setter
-    String siape;
+    String siape; //Sistema Integrado de Administração de Pessoal
     @Getter
     @Setter
-    String centroAcademico = "CCET";
+    String centroAcademico = "CCET"; // centro acadêmico ao qual pertencem os professores
     @Getter
     @Setter
-    String regimeTrabalho;
+    String regimeTrabalho; 
     @Getter
     @Setter
-    String lotacao = "Escola de Informática Aplicada";
+    String lotacao = "Escola de Informática Aplicada"; // setor onde o professor está alocado na instituição de ensino
     @Getter
     @Setter
     String classeDocente;
     @Getter
     @Setter
-    String titulacao;
+    String titulacao; // titulação possuída pelo professor
     @Getter
     @Setter
     String cargo;

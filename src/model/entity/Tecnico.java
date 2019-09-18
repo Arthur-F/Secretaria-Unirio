@@ -16,13 +16,13 @@ public class Tecnico extends Usuario {
 
     @Getter
     @Setter
-    String siape;
+    String siape; //Sistema Integrado de Administração de Pessoal
     @Getter
     @Setter
-    String centroAcademico;
+    String centroAcademico; // centro acadêmico ao qual pertencem os técnicos
     @Getter
     @Setter
-    String lotacao;
+    String lotacao;// setor onde o técnico está alocado na instituição de ensino
 
     public Tecnico() {
     }

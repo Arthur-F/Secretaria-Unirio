@@ -16,10 +16,10 @@ public class Aluno extends Usuario {
     
     @Getter
     @Setter
-    private String matricula;
+    private String matricula; // matrícula do aluno na instituição
     @Getter
     @Setter
-    private String periodo;
+    private String periodo; // período o qual o aluno está cursando
 
     public Aluno() {
     }

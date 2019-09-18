@@ -16,13 +16,13 @@ public class Usuario {
 
     @Getter
     @Setter
-    private String cpf;
+    private String cpf; // cpf do usuário. É utilizado para fazer o login no sistema. 
     @Getter
     @Setter
-    private String senha;
+    private String senha; // senha do usuário
     @Getter
     @Setter
-    private String nome;
+    private String nome; // nome do usuário
     @Getter
     @Setter
     private String dataNascimeto;
