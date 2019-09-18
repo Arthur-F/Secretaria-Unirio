@@ -343,6 +343,10 @@ public class TelaAluno extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tabelaRequerimentoAluno.getModel();
         model.setRowCount(0);
     }
+    
+    /**
+     * preenche campos como o email, nome, matricula e telefone do aluno
+     */
     private void preencherCampos() {
         emailAlunoLabel.setText(aluno.getEmail());
         nomeCompletoAlunoLabel.setText(aluno.getNome());
@@ -350,7 +354,10 @@ public class TelaAluno extends javax.swing.JFrame {
         telefoneAlunoLabel.setText(aluno.getTelefoneCelular());
 
     }
-
+    
+    /**
+     * Preenche o documento de requerimento da secretaria
+     */
     private void popularRequerimentos() {
 
         DefaultTableModel model = (DefaultTableModel) tabelaRequerimentoAluno.getModel();
@@ -363,12 +370,20 @@ public class TelaAluno extends javax.swing.JFrame {
             model.addRow(rowData);
         }
     }
-
+    
+    /**
+     * Responsavel por ao redimensionar, manter a tela centralizada
+     */
     private void centralizarTela() {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
     }
-
+    
+    /**
+     * 
+     * @param evt evento de clique do mouse
+     * Mostra propriedades de requerimento que foram clicadas
+     */
     private void listaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaMouseClicked
         String titulo;
         JList list = (JList) evt.getSource();
@@ -383,6 +398,10 @@ public class TelaAluno extends javax.swing.JFrame {
 
     }//GEN-LAST:event_listaMouseClicked
 
+    /**
+     * Mostra janela de dados
+     * @param evt evento do clique do mouse
+     */
     private void verDadosCompletosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verDadosCompletosMouseClicked
         DadosCadastraisCompletos janelaDados = new DadosCadastraisCompletos(aluno);
         janelaDados.setVisible(true);
@@ -391,16 +410,28 @@ public class TelaAluno extends javax.swing.JFrame {
 
      }//GEN-LAST:event_verDadosCompletosMouseClicked
 
+    /**
+     * Atualiza a a seta do mouse de acordo com o clique do mouse
+     * @param evt evento de clique do mouse
+     */
     private void setinhaAtualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_setinhaAtualizarMouseClicked
         limparTabela();
         popularRequerimentos();
     }//GEN-LAST:event_setinhaAtualizarMouseClicked
 
+    /**
+     * Atualiza o campo clicado pelo mouse
+     * @param evt evento do clique do mouse
+     */
     private void quadradoAtualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quadradoAtualizarMouseClicked
         limparTabela();
         popularRequerimentos();
     }//GEN-LAST:event_quadradoAtualizarMouseClicked
-
+    
+    /**
+     * Envia Requerimento do Aluno
+     * @param evt evento de clique do mouse
+     */
     private void tabelaRequerimentoAlunoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaRequerimentoAlunoMouseClicked
         tabelaRequerimentoAluno = (JTable) evt.getSource();
         
@@ -415,7 +446,11 @@ public class TelaAluno extends javax.swing.JFrame {
         }        
         
     }//GEN-LAST:event_tabelaRequerimentoAlunoMouseClicked
-
+    
+    /**
+     * Faz logout da tela do aluno
+     * @param evt evento de clique do mouse
+     */
     private void logoutLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutLabelMouseClicked
         Login telaLogin = new Login();
         telaLogin.setVisible(true);
