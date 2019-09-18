@@ -35,7 +35,13 @@ public class TelaProfessor extends javax.swing.JFrame {
         centralizarTela();
 
     }
+    
+    
     Professor professor;
+    
+    /**
+     * Construtor da tela de Professor
+     */
     public TelaProfessor(Professor professor) {
         initComponents();
         this.professor = professor; 
@@ -521,7 +527,10 @@ public class TelaProfessor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
- 
+    
+    /**
+     * Preenche os campso da tela
+     */
     private void preencherTela(){
         emailProfessorLabel.setText(professor.getEmail());
         nomeCompletoProfessorLabel.setText(professor.getNome());
@@ -534,6 +543,10 @@ public class TelaProfessor extends javax.swing.JFrame {
         
     }
     
+    
+    /**
+     * Limpa a tabela de requerimento dos alunos
+     */
     private void limparTabela(){
         DefaultTableModel model = (DefaultTableModel) tabelaRequerimentoAlunosPendentes.getModel();
         DefaultTableModel model2 = (DefaultTableModel) tabelaRequerimentoAlunosFinalizados.getModel();
@@ -544,6 +557,10 @@ public class TelaProfessor extends javax.swing.JFrame {
         model3.setRowCount(0);
 
     }
+    
+    /**
+     * Preenche os requerimentos do professor na tela
+     */
     private void popularMeusRequerimentos(){ 
 //        DefaultTableModel model = (DefaultTableModel) tabelaMeusRequerimentos.getModel();
 //        ArrayList<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoCPF(professor.getCpf());
@@ -555,6 +572,10 @@ public class TelaProfessor extends javax.swing.JFrame {
 //            model.addRow(rowData);
 //        }
     }
+    
+    /**
+     * Preenche os requerimentos dos alunos
+     */
     private void popularRequerimentosAlunos(){
      DefaultTableModel model = (DefaultTableModel) tabelaRequerimentoAlunos.getModel();
      List<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoAreaResponsavelProfessorDesignado(professor.getCpf());
@@ -568,6 +589,9 @@ public class TelaProfessor extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Preenche os requerimentos finalizados
+     */
     private void popularRequerimentosAlunosFinalizado(){
         DefaultTableModel model = (DefaultTableModel) tabelaRequerimentoAlunosFinalizados.getModel();
         List<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoAreaResponsavelProfessorFinalizado(professor.getCpf());
@@ -580,6 +604,10 @@ public class TelaProfessor extends javax.swing.JFrame {
             model.addRow(rowData);
         }
     }
+    
+    /**
+     * Preenche os requerimentos pendentes dos alunos
+     */
     
     private void popularRequerimentosAlunosPendentes(){
      DefaultTableModel model = (DefaultTableModel) tabelaRequerimentoAlunosPendentes.getModel();
@@ -594,6 +622,9 @@ public class TelaProfessor extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Preenche os requerimentos dos professores
+     */
     private void popularRequerimentosProfessores(){
 //     DefaultTableModel model = (DefaultTableModel) tabelaRequerimentosDeProfessores.getModel();
 //        ArrayList<Requerimento> requerimentos = controller.Gerenciador.buscarRequerimentoRequerenteProfessor();
@@ -606,11 +637,18 @@ public class TelaProfessor extends javax.swing.JFrame {
 //        }
     }
 
-    
+    /**
+     * Centraliza a tela independente do tamanho
+     */
     private void centralizarTela() {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
     }
+    
+    /**
+     * Seleciona um requerimento específco se for clicado
+     * @param evt evento de clique do mouse
+     */
     private void selecionarRequerimento(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selecionarRequerimento
         String titulo;
         JList list = (JList) evt.getSource();
@@ -632,6 +670,10 @@ public class TelaProfessor extends javax.swing.JFrame {
 
     }//GEN-LAST:event_selecionarRequerimento
    
+    /**
+     * Sai da tela se for clicado mesmo no label do botao
+     * @param evt evento de clique do mouse
+     */
     private void logoutLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutLabelMouseClicked
         Login telaLogin = new Login();
         telaLogin.setVisible(true);
@@ -639,6 +681,10 @@ public class TelaProfessor extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_logoutLabelMouseClicked
 
+    /**
+     * Atualiza campo 
+     * @param evt evento de clique do mouse
+     */
     private void quadradoAtualizacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quadradoAtualizacaoMouseClicked
         limparTabela();
         popularRequerimentosAlunos();
@@ -646,7 +692,11 @@ public class TelaProfessor extends javax.swing.JFrame {
         popularRequerimentosAlunosFinalizado();       
         
     }//GEN-LAST:event_quadradoAtualizacaoMouseClicked
-
+    
+    /**
+     * 	Gera os requerimentos dos alunso
+     * @param evt evento de clique do mouse
+     */
     private void tabelaRequerimentoAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaRequerimentoAlunosMouseClicked
         tabelaRequerimentoAlunos = (JTable) evt.getSource();
         
@@ -662,6 +712,10 @@ public class TelaProfessor extends javax.swing.JFrame {
 
     }//GEN-LAST:event_tabelaRequerimentoAlunosMouseClicked
 
+    /**
+     * Gerar os requerimentos dos alunos em pendencia
+     * @param evt evento de clique do mouse
+     */
     private void tabelaRequerimentoAlunosPendentesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaRequerimentoAlunosPendentesMouseClicked
     tabelaRequerimentoAlunosPendentes = (JTable) evt.getSource();
         
@@ -676,6 +730,10 @@ public class TelaProfessor extends javax.swing.JFrame {
         }   
     }//GEN-LAST:event_tabelaRequerimentoAlunosPendentesMouseClicked
 
+    /**
+     * Gera os requerimentos finais dos alunos
+     * @param evt evento de clique do mouse
+     */
     private void tabelaRequerimentoAlunosFinalizadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaRequerimentoAlunosFinalizadosMouseClicked
         tabelaRequerimentoAlunosFinalizados = (JTable) evt.getSource();
         
@@ -691,6 +749,11 @@ public class TelaProfessor extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_tabelaRequerimentoAlunosFinalizadosMouseClicked
+    
+    /**
+     * Retira a visibilidade do professor se nao tiver o cargo adequado
+     * @param cargo é o cargo do professor
+     */
 
     public void visibilidadeAbaProfessor(String cargo) {
         if (!cargo.equals("Decano") && !cargo.equals("Chefe de Departamento")) {
